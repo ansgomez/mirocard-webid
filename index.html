@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Andres Gomez">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>miroCard by Miromico</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+
+    <link rel="icon" href="https://miromico.ch/wp-content/uploads/2018/06/cropped-favicon-1-1-192x192.png" sizes="192x192">
+    <link rel="icon" href="https://miromico.ch/wp-content/uploads/2018/06/cropped-favicon-1-1-32x32.png" sizes="32x32">
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+
+    <script src="https://viewer.altium.com/client/static/js/embed.js"></script>
+  </head>
+  <body data-spy="scroll" data-target=".navbar" >
+
+	<header>
+	  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<div class="container">
+      <a href="https://miromico.ch"><img src="img/MiroLogo_neg_icon-1.svg" width="45" style="padding-right: 5px;" alt="" class="d-inline-block align-middle mr-2"> </a>
+			<a class="navbar-brand" href="#">miroCard</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+
+			</div>
+		</div>
+	  </nav>
+	</header>
+
+  <header class="masthead text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h1 class="mb-5">&nbsp </h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+
+    <section class="jumbotron text-center">
+    <div class="overlay"></div>
+      <div class="container">
+      <h1 class="jumbotron-heading">miroCard</h1>
+        <p class="lead text-muted-small">
+          A brand-new product, bringing new digital services in a smart-card form factor.
+        </p>
+      </div>
+    </section>
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+  
+    <div class="container marketing">
+      	
+
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider" id="features">
+
+      <div class="row featurette align-items-center">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">User Identification </h2>
+          <p class="lead" align="justify">Hold your miroCard close to your computer.</p>
+		  
+			 <p> This demo uses WebBluetooth to receive sensor data from a miroCard. 
+				 To start, press the button below.</p>
+
+			 <script  src="./webBLE.js">
+			 </script>
+
+			 <form>
+			   <!-- <label for="allAdvertisements">All Advertisements</label> -->
+			   <input id="allAdvertisements" type="checkbox" hidden checked> 
+			   <input id="name" type="text" size="17" placeholder="Device Name" hidden> 
+			    <input id="namePrefix" type="text" size="17" placeholder="Device Name Prefix" hidden checked> 
+			   <button>Identify user</button>
+			 </form>
+ 
+			 <script>
+			   document.querySelector('form').addEventListener('submit', function(event) {
+			     event.stopPropagation();
+			     event.preventDefault();
+
+			     if (isWebBluetoothEnabled()) {
+			       ChromeSamples.clearLog();
+			       onButtonClick();
+			/* 	   printmiroCardData(23, 40.3); */
+			     }
+			   });
+			 </script>
+
+			 <div hidden>
+			   <h3>Live Output</h3>
+			   <div id="output" class="output">
+			     <div id="content"></div>
+			     <div id="status"></div>
+			     <pre id="log"></pre>
+			   </div>
+			 </div>
+ 
+			 <p> </p>
+
+			 <div id="sensor_data">
+			 </div>
+
+			 <p style='font-size:12px'> Note: Scanning is experimental. It works best on Android devices using Chrome 79+ with the <br> <code>chrome://flags/#enable-experimental-web-platform-features</code>
+			 flag enabled.</p>		  
+		  
+        </div>
+        <div class="col-md-3">
+          <img class='bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto' src="img/mirocard.png" preserveAspectRatio="xMidYMid slice" alt="Pocket-Sized miroCard">
+        </div>
+      </div>
+    
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+    </div><!-- /.container -->
+
+  <div class="container" id="contact">
+    <div class="pricing-header pt-md-5 pb-md-4">
+      <h2 class="display-5 ">Contact Us</h2>
+
+      <p align="justify">  
+        The miroCard is currently available as engineering samples. If you are interested in ordering miroCards or customizing your own design, please contact us: <a href="mailto:info@mirocard.swiss">info@mirocard.swiss</a>
+      </p>
+
+    </div>
+  </div><!-- /.container -->
+
+
+ <hr class="featurette-divider">
+ 
+  <!-- FOOTER -->
+  <footer class="container">
+    <p class="float-right">
+      <a href="https://miromico.ch/contact/?lang=en">Contact</a> &middot;
+      <a href="https://miromico.ch/data-protection/?lang=en">Data Protection</a> &middot; 
+      <a href="https://miromico.ch/imprint/?lang=en">Imprint</a> &middot;
+      <a href="#">Back to top</a>
+    </p>
+    <p>&copy; 2020 Andres Gomez, 
+      <a href="https://miromico.ch/">Miromico AG</a>  
+    </p>
+
+  </footer>
+</main>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+</html>
