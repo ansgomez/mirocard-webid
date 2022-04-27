@@ -153,20 +153,22 @@ try {
     if(hexString.substring(0,8)=="02 03 04") 
     {
       let manu = hexString.replace(/\s+/g, '');
-      let msb3 = manu.slice(6,10).toString('hex');
-      let lsb3 = manu.slice(8,12).toString('hex');
+      let encryptedBytes=hexStringToUint8Array(manu.substring(6)); // start after 020304
+      let key=hexStringToUint8Array('000102030405060708090a0b0c0d0e0f');
+      let aes=new aesjs.ModeOfOperation.ecb(key);
+      let decrypted=aes.decrypt(encryptedBytes);
 
-      DEBUG&&PRINTF(manu);
-      // Print last 3 bytes
-      DEBUG&&PRINTF(msb3);
-      DEBUG&&PRINTF(lsb3);
 
-      let humidity_raw = ((parseInt(msb3.substring(2,4),16)&0x03)<<8) + parseInt(msb3.substring(0,2),16);
-      let temperature_raw = ((parseInt(lsb3.substring(0,2),16)&0xFC)>>2) + (parseInt(lsb3.substring(2,4),16)<<6);
+      let humidity_raw = ((decrypted[1]&0x03)<<8) + decrypted[0];
+      let temperature_raw = (decrypted[2]<<6) + ((decrypted[1]&0xFC)>>2);
 
       // conversion
       let temperature = (-40.0 + temperature_raw / 100.0).toFixed(1);
       let humidity =  (humidity_raw / 10.0).toFixed(1);
+
+      let deviceId=[decrypted[3],decrypted[4],decrypted[5],decrypted[6],decrypted[7],decrypted[8]].map(
+        function(n){return n.toString(16).padStart(2,'0')}
+      ).join('');
 
 
       log('MiroCard beacon.');
@@ -174,6 +176,7 @@ try {
       //{% comment %} log('  Device ID: ' + event.device.id); {% endcomment %}
       log('  Temp: ' + temperature);
       log('  RH: ' + humidity);
+      log('DevID: ' + deviceId);
       log('  RSSI: ' + event.rssi);
       //log('  TX Power: ' + event.txPower);
       //log('  UUIDs: ' + event.uuids);
@@ -212,6 +215,9 @@ log(`  ${labelOfDataSource} Data: ` + key +
     '\n    (Hex) ' + hexString +
     '\n    (ASCII) ' + asciiString);
 };
+function hexStringToUint8Array(hex) {
+	return new Uint8Array(hex.match(/[0-9a-fA-F]{2}/g).map(function(n){return parseInt(n,16)}))
+}
 
 
 log = ChromeSamples.log;
