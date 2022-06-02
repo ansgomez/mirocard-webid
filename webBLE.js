@@ -82,7 +82,7 @@ function printMiroCardData(temperature, humidity) {
     var card_footer = `
         </p> 
       </div>
-    </div>
+    </div> <br> <br>
     `;
 	
 	var greeting = "";
