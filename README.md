@@ -42,8 +42,7 @@ Related repositories:
 | [mirocard-hardware](https://github.com/ansgomez/mirocard-hardware) | Hardware: datasheet, schematics and Altium PCB project (MiroCard V2.0) |
 | [mirocard-contiki-ng](https://github.com/ansgomez/mirocard-contiki-ng) | Firmware: Contiki-NG fork with the MiroCard platform and example applications |
 | [miroreader-app](https://github.com/ansgomez/miroreader-app) | Android app to receive and display MiroCard beacons |
-| [mirocard-scanner-python](https://github.com/ansgomez/mirocard-scanner-python) | Python (bluepy) script that scans for and decodes MiroCard beacons |
-| [mirocard-discovery-python](https://github.com/ansgomez/mirocard-discovery-python) | Python (gattlib) script that discovers MiroCard BLE devices |
+| [mirocard-scanner-python](https://github.com/ansgomez/mirocard-scanner-python) | Python scripts to scan for and decode MiroCard beacons (bluepy) and discover devices (gattlib) |
 | [mirocard-scanner-mqtt](https://github.com/ansgomez/mirocard-scanner-mqtt) | Node.js bridge forwarding MiroCard beacons to an MQTT broker |
 | [mirocard-scanner-influx](https://github.com/ansgomez/mirocard-scanner-influx) | Node.js bridge storing MiroCard beacons in InfluxDB |
 | **mirocard-webid** (this repository) | Web Bluetooth demo page for identification and sensor readout |
