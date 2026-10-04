@@ -52,5 +52,5 @@ Related repositories:
 
 ## License
 
-This repository does not include a license file yet, so no reuse rights are granted.
-TODO (Andres): confirm who owns this code (Andres Gomez and/or Miromico AG) and add a `LICENSE` file.
+BSD-3-Clause. Copyright (c) 2022, Andres Gomez. See [LICENSE](LICENSE).
+Third-party files listed above (Bootstrap, Popper.js, Start Bootstrap CSS) keep their own MIT licenses.
